@@ -6,6 +6,10 @@
     <body>
 
         <h1>Music Videos List</h1>
+        Filter:
+        <input id="filter_data" name="filter_data" value="">
+        <button id="filter_button" onclick="apply_filter();">APPLY</button>
+
         <ul>
             {% for item in items %}
                 <li>
@@ -24,4 +28,14 @@
             {% endfor %}
         </ul>
     </body>
+
+    <script>
+        function apply_filter() {
+            // Get user input
+            let filter_val = document.getElementById("filter_data").value;
+
+            // Redirect to root url with query params
+            window.location.href = "/?action=filter&key=name&val=" + filter_val;
+        }
+    </script>
 </html>
