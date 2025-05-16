@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Music Video App</title>
+    </head>
+
+    <body>
+
+        <h1>Music Videos List</h1>
+        <ul>
+            {% for item in items %}
+                <li>
+                    Name: {{ item.name }} <br>
+                    Score: {{ item.score }} <br>
+
+                    <a href="{{ item.track_url }}" target="_blank">
+                        <img src="{{ item.image }}"><br>
+                        View Music Video
+                    </a>
+                    <!-- <iframe width="320" height="240"
+                        src="http:{{ item.video_url }}">
+                    </iframe> -->
+                </li>
+                <br>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
