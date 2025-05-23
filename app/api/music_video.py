@@ -17,5 +17,3 @@ def get_api_data():
                 "track_url": result.get("trackUrl"),
                 "score": result.get("score"),
             }
-
-    yield {}
