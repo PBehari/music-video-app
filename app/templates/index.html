@@ -10,6 +10,19 @@
         <input id="filter_data" name="filter_data" value="">
         <button id="filter_button" onclick="apply_filter();">APPLY</button>
 
+        Sort by:
+        <select id="sort_data">
+            <option value="">----</option>
+            <option value="name">Name</option>
+            <option value="score">Score</option>
+        </select>
+
+        Sort order:
+        <select id="sort_order">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+
         <ul>
             {% for item in items %}
                 <li>
@@ -30,6 +43,27 @@
     </body>
 
     <script>
+        // Apply sorting
+        let sort_data = document.getElementById("sort_data");
+        if (sort_data) {
+            sort_data.onchange = function(event) {
+                // Default sort order
+                let dir = "asc";
+
+                // Get sort order
+                let sort_order = document.getElementById("sort_order");
+                if (sort_order && sort_order.value) {
+                    dir = sort_order.value;
+                }
+
+                // Get sort key
+                let sort_key = event.target.value;
+
+                // Redirect to root url with query params
+                window.location.href = "/?action=sorting&key="+ sort_key +"&dir=" + dir;
+            }
+        }
+
         function apply_filter() {
             // Get user input
             let filter_val = document.getElementById("filter_data").value;
